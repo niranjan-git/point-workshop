@@ -10,7 +10,12 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+import os
+from dotenv import load_dotenv
 from pathlib import Path
+import datetime
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -30,7 +35,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = [
+BUILT_IN_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,6 +43,23 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+LOCAL_APPS = [
+    'user',
+]
+
+
+THIRD_PARTY_APPS = [
+    # 'bootstrap4',
+]
+
+INSTALLED_APPS = BUILT_IN_APPS + LOCAL_APPS + THIRD_PARTY_APPS
+
+
+LOGIN_URL = '/user/'
+# LOGIN_REDIRECT_URL = '/participant/'
+LOGOUT_REDIRECT_URL = '/user/'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -47,6 +69,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_session_timeout.middleware.SessionTimeoutMiddleware',
 ]
 
 ROOT_URLCONF = 'core.urls'
@@ -54,7 +77,7 @@ ROOT_URLCONF = 'core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR/'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -75,8 +98,12 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'HOST': 'localhost',
+        'PORT': '3306',
+        'USER': 'development',
+        'NAME': 'pointworkshop',
+        'PASSWORD': 'development'
     }
 }
 
@@ -120,4 +147,52 @@ STATIC_URL = 'static/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
+AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.AllowAllUsersModelBackend']
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+AUTH_USER_MODEL = 'user.User'
+
+
+# Session configuration
+
+SESSION_EXPIRE_SECONDS = 1800    # seconds
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+SESSION_EXPIRE_AFTER_LAST_ACTIVITY = True
+SESSION_EXPIRE_AFTER_LAST_ACTIVITY_GRACE_PERIOD = 1 # group by minute
+SESSION_TIMEOUT_REDIRECT = ''
+
+# Session configuration
+
+
+# mail Configuration starts
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'notify.user.management@gmail.com' # os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = 'tsbrhqwmngrqikmc' # os.getenv('EMAIL_HOST_PASSWORD')
+APP_NAME = 'JRF AT DESIDOC'
+
+# mail Configuration ends
+
+
+
+OTP_EXPIRY_TIME = 300 # seconds
+
+OTP_COUNT_FOR_A_SESSION = 3
+
+
+# Default Password length
+
+PASSWORD_DEFAULT_LEN = 8
+PASSWORD_MAX_LEN = 12
+
+# Default Password length
+
+
+# CAPTCHA settings start
+CAPTCHA_CHALLENGE_FUNCT = 'project_jrf.utils.random_char_challenge'
+CAPTCHA_FONT_SIZE = 25
+CAPTCHA_LENGTH = 6
+CAPTCHA_IMAGE_SIZE = (170, 50)
+CAPTCHA_LETTER_ROTATION = (-5,5)
+
+# CAPTCHA settings end
