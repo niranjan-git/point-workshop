@@ -1,0 +1,17 @@
+{% extends "base/layout.html" %}
+{% load static %}
+
+{% block title %}
+    Page Not Found
+{% endblock %}
+
+{% block mainContent %}
+<div class="container text-center">
+    <img class="mb-4 img-error" src="{% static 'images/error-404.svg' %}" style="width: 400px;"/>
+    <p class="lead">This requested URL was not found.</p>
+    <a href="/">
+        <i class="fas fa-arrow-left mr-1"></i>
+        Return to Home
+    </a>
+</div> 
+{% endblock %}
