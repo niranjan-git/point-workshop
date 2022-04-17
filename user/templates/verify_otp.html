@@ -1,0 +1,192 @@
+{% extends "base/layout.html" %}
+
+{% load static %}
+
+{% block title %}
+    Verify
+{% endblock %}
+
+{% block mainContent %}
+
+  <div class="container col-xs-10 col-sm-10 col-md-6 col-lg-5 col-xl-5">
+    <div class="shadow-sm p-3 mb-5 bg-white rounded">
+      
+      {% if form.errors %}
+        {% for field in form %}
+          {% for error in field.errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+          {% endfor %}
+        {% endfor %} 
+        
+      {% endif %}
+
+        <form action="{% url 'user:verify-otp' %}" method="post" id="verifyEmail" autocomplete="off">
+
+          {% csrf_token %}
+
+          <div class="row .border">
+              <div class="col-md-12 col-sm-12 col-lg-12">
+                <input type="number" name="otp" id="otp" placeholder="Enter OTP Received on your Email" autocomplete="off" autofocus maxlength="6" minlength="6" class="form-control" required="required">
+              </div>
+          </div>
+          <div class="row .border">
+              <div id="divGetOtp" class="col-md-12 col-sm-12 col-lg-12 mt-1">
+                <input type="button" class="btn btn-info form-control col-4" id="emailOtp" disabled  value="Resend OTP">
+              </div>
+          </div>
+
+          <div class="row">
+            <span id="otpMessage" class="text-primary form-control" style="border:none !important"></span>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-lg-12 mt-3 mb-3" style="color:white;min-width:250px;max-width:350px;margin:auto;">
+              <input type="submit" value="Verify OTP" class="btn btn-primary btn-md btn-block" />
+            </div>
+          </div>
+
+        </form>
+
+    </div>
+  </div>
+
+{% endblock %}
+
+
+
+{% block extra_js %}
+
+  <script src="{% static 'jquery-validation/jquery.validate.min.js' %}"></script>
+  <script>
+
+      var maxCount = 3
+
+      $(document).ready(function(){
+  
+        $("div.alert").fadeTo(5000, 500).fadeOut(500, function() {
+          $("div.alert").fadeOut(500);
+        });
+          
+
+
+        //var validator = $("form#verifyEmail").validate();
+
+        resendOtpTime(window.maxCount);
+
+
+
+
+
+
+        $("input#emailOtp").click(function(){
+          $('#divGetOtp input').attr("value", "Resending...");
+          $('div span#otpMessage').html('');
+          
+          $.ajax({
+            url: '../resend-email-otp/',
+            method: 'POST',
+            data: '',
+            dataType: 'json',
+            cache: false,
+            contentType: false,
+            processData: false,
+            beforeSend: function(data){
+              $("div.spanner").removeClass("hide").addClass("show");
+              $("div.overlay").removeClass("hide").addClass("show");
+            },
+            success: function (data) {
+              $("div.spanner").removeClass("show").addClass("hide");
+              $("div.overlay").removeClass("show").addClass("hide");
+              
+              $('#divGetOtp input').attr("value", "Resend OTP");
+              $('div span#otpMessage').html(data['message']);
+              resendOtpTime(window.maxCount);
+            }
+
+          });
+             
+        });
+          
+      });
+
+      function resendOtpTime(maxCount){
+        $("input#emailOtp").fadeOut();
+
+        window.maxCount = window.maxCount-1;
+        //console.log("Max Count : "+window.maxCount);
+
+        if(window.maxCount < 0){
+          return false;
+        }
+
+        var timeleft = 30;
+
+        $("#divGetOtp input").after("<span style='display: block; font-weight: bold; font-size: 11pt; margin-top: .5rem' class='text text-danger'></span>");
+
+        $(this).attr("disabled", "disabled");
+
+        var timer = setInterval(function(){
+          if(timeleft <= 0){
+            clearInterval(timer);
+            $("#divGetOtp span").remove();
+            $("input#emailOtp").removeAttr("disabled");
+            $("input#emailOtp").fadeIn();
+          }
+
+          
+          var remain = timeleft
+          //console.log(remain);
+          $("#divGetOtp span").html("Resend OTP button will be available after "+remain+" sec");
+          
+          timeleft -= 1;
+        }, 1000);
+      }
+
+  </script>
+
+{% endblock extra_js %}
+
+
+
+
+
+
+{% comment %}
+  
+<!-- 
+  {% if form.errors %}
+    <p>Your username and password didn't match. Please try again.</p>
+  {% endif %}
+
+  {% if next %}
+    {% if user.is_authenticated %}
+      <p>Your account doesn't have access to this page. To proceed,
+      please login with an account that has access.</p>
+    {% else %}
+      <p>Please login to see this page.</p>
+    {% endif %}
+  {% endif %}
+
+  <form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    <table>
+      <tr>
+        <td>{{ form.username.label_tag }}</td>
+        <td>{{ form.username }}</td>
+      </tr>
+      <tr>
+        <td>{{ form.password.label_tag }}</td>
+        <td>{{ form.password }}</td>
+      </tr>
+    </table>
+    <input type="submit" value="login" />
+    <input type="hidden" name="next" value="{{ next }}" />
+  </form>
+
+  {# Assumes you setup the password_reset view in your URLconf #}
+  <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+
+{% endblock %} -->
+{% endcomment %}

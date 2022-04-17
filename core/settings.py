@@ -51,6 +51,7 @@ LOCAL_APPS = [
 
 THIRD_PARTY_APPS = [
     # 'bootstrap4',
+    'captcha',
 ]
 
 INSTALLED_APPS = BUILT_IN_APPS + LOCAL_APPS + THIRD_PARTY_APPS
@@ -100,10 +101,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'HOST': 'localhost',
-        'PORT': '3306',
-        'USER': 'development',
-        'NAME': 'pointworkshop',
-        'PASSWORD': 'development'
+        'PORT': '3308',
+        'USER': 'root',
+        'NAME': 'point_workshop',
+        'PASSWORD': 'root'
     }
 }
 
@@ -144,6 +145,10 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
@@ -169,7 +174,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'notify.user.management@gmail.com' # os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = 'Password' # os.getenv('EMAIL_HOST_PASSWORD')
-APP_NAME = 'JRF AT DESIDOC'
+APP_NAME = 'POINT WORKSHOP'
 
 # mail Configuration ends
 
@@ -189,7 +194,7 @@ PASSWORD_MAX_LEN = 12
 
 
 # CAPTCHA settings start
-CAPTCHA_CHALLENGE_FUNCT = 'project_jrf.utils.random_char_challenge'
+CAPTCHA_CHALLENGE_FUNCT = 'core.utils.generateCustomCaptcha'
 CAPTCHA_FONT_SIZE = 25
 CAPTCHA_LENGTH = 6
 CAPTCHA_IMAGE_SIZE = (170, 50)

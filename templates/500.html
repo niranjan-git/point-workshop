@@ -1,0 +1,17 @@
+{% extends "base/layout.html" %}
+{% load static %}
+
+{% block title %}
+    Something wrong
+{% endblock %}
+
+{% block mainContent %} 
+<div class="container text-center">
+    <img class="mb-4 img-error" src="{% static 'images/error-500.svg' %}" style="width: 400px;"/>
+    <p class="lead">Something went wrong, try again later</p>
+    <a href="/">
+        <i class="fas fa-arrow-left mr-1"></i>
+        Return to Home
+    </a>
+</div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base/layout.html" %}
+
+
+{% load static %}
+
+
+
+{% block extra_styles %}
+  <style>
+    .error{
+        color: red;
+    }
+  </style> 
+{% endblock extra_styles %}
+
+
+{% block mainContent %}
+
+  <div style="margin-top:10px" class="container border" >
+    
+    <div class="col-lg-12 col-sm-12" style="height: 350px; display:table-cell; vertical-align: middle; text-align:center">
+          <h2>OTP Limit for this session is exceeded</h2>
+          <h4>Try after some times</h4>
+    </div>
+    
+  </div>
+
+{% endblock mainContent %}
+
