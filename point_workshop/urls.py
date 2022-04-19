@@ -6,6 +6,6 @@ app_name = 'point_workshop'
 
 
 urlpatterns = [
-    path('', views.Home.as_view(), name='home'),
+    path('', views.home, name='home'),
     
 ]
