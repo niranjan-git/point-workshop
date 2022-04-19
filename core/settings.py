@@ -46,6 +46,7 @@ BUILT_IN_APPS = [
 
 LOCAL_APPS = [
     'user',
+    'point_workshop',
 ]
 
 
@@ -58,7 +59,7 @@ INSTALLED_APPS = BUILT_IN_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 
 
 LOGIN_URL = '/user/'
-# LOGIN_REDIRECT_URL = '/participant/'
+LOGIN_REDIRECT_URL = '/point/'
 LOGOUT_REDIRECT_URL = '/user/'
 
 

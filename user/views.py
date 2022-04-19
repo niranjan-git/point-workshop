@@ -499,7 +499,7 @@ def resend_mail_otp(request):
 class LoginView(FormView):
     form_class = UserLoginForm
     template_name = 'login.html'
-    success_url = reverse_lazy('participant:submission_list')
+    success_url = reverse_lazy('point_workshop:home')
 
 
     def form_invalid(self, form):
@@ -518,7 +518,7 @@ class LoginView(FormView):
             if user.is_active:
                 print("active user")
                 login(self.request, user)
-                return HttpResponseRedirect(reverse('participant:submission_list'))
+                return HttpResponseRedirect(reverse('point_workshop:home'))
             else:
                 print("Inactive User")
                 # return redirect('user:activate-user')
