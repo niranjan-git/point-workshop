@@ -22,5 +22,12 @@ urlpatterns = [
     path('captcha/', include('captcha.urls')),
     path('', RedirectView.as_view(url='user/', permanent=False), name='login'),
     path('user/', include(('user.urls'), namespace='user')),
+    path('point/', include(('point_workshop.urls'), namespace='point_workshop')),
 
 ]
+
+
+
+admin.site.site_header = 'POINT WORKSHOP'
+admin.site.site_title = 'POINT WORKSHOP'
+admin.site.index_title= 'POINT WORKSHOP Home'
