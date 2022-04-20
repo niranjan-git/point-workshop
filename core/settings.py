@@ -101,11 +101,11 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': 'localhost',
-        'PORT': '3308',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
         'USER': 'root',
         'NAME': 'point_workshop',
-        'PASSWORD': 'root'
+        'PASSWORD': 'Desidoc@123'
     }
 }
 
