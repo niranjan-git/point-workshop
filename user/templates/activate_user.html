@@ -16,12 +16,12 @@
       font-size: 10pt;
     }
     #div_captcha img{
-      max-width: 170px;
+      max-width: 140px;
       max-height: 50px;
     }
   
     #div_captcha input{
-      max-width: 150px;
+      max-width: 100px;
       max-height: 40px;
     }
   </style> 
@@ -41,30 +41,33 @@
     <div class="card-body .text-info">
       <form id="forgotPassword" method="post" action="{% url 'user:activate-user' %}" class="col-12" >
       {% csrf_token %}
-      <div class="row">
-        <div class="col-12 mb-3">
-          <label for="id_email" class="col-form-label">Enter Registered Email:</label>
-            <input type="email" class="form-control" id="id_email" name="email" value="" autofocus="" autocapitalize="none" autocomplete="off" maxlength="150" required="" placeholder="Registered Email">
+      
+      <div class="mb-3">
+        <div class="form-outline .col-12">
+          <input type="email" class="form-control form-control-lg" id="id_email" name="email" autofocus="" autocapitalize="none" autocomplete="off" maxlength="150" required=""  value="{{ form.email.value | default:'' }}">
+          <label class="form-label" for="id_email">Email address:</label>
         </div>
       </div>
 
-      <div id="div_captcha" class="row mb-3">
-        {{ form.captcha }}
+      <div class="mb-4">
+        <div id="div_captcha" class="row">
+          {{ form.captcha }}
 
-        <div class="col-2 col-md-2 col-sm-2 col-xs-2 m-1">
-          <div class="btn btn-secondary btn-sm fw-bold text-light" id="refreshcaptcha">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-bootstrap-reboot" viewBox="0 0 16 16">
-              <path d="M1.161 8a6.84 6.84 0 1 0 6.842-6.84.58.58 0 1 1 0-1.16 8 8 0 1 1-6.556 3.412l-.663-.577a.58.58 0 0 1 .227-.997l2.52-.69a.58.58 0 0 1 .728.633l-.332 2.592a.58.58 0 0 1-.956.364l-.643-.56A6.812 6.812 0 0 0 1.16 8z"/>
-              <path d="M6.641 11.671V8.843h1.57l1.498 2.828h1.314L9.377 8.665c.897-.3 1.427-1.106 1.427-2.1 0-1.37-.943-2.246-2.456-2.246H5.5v7.352h1.141zm0-3.75V5.277h1.57c.881 0 1.416.499 1.416 1.32 0 .84-.504 1.324-1.386 1.324h-1.6z"/>
-            </svg>
+          <div class="col-2 col-md-2 col-sm-2 col-xs-2 m-1">
+            <button class="btn btn-secondary .btn-sm btn-floating fw-bold text-light" id="refreshcaptcha">
+              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-bootstrap-reboot" viewBox="0 0 16 16">
+                <path d="M1.161 8a6.84 6.84 0 1 0 6.842-6.84.58.58 0 1 1 0-1.16 8 8 0 1 1-6.556 3.412l-.663-.577a.58.58 0 0 1 .227-.997l2.52-.69a.58.58 0 0 1 .728.633l-.332 2.592a.58.58 0 0 1-.956.364l-.643-.56A6.812 6.812 0 0 0 1.16 8z"/>
+                <path d="M6.641 11.671V8.843h1.57l1.498 2.828h1.314L9.377 8.665c.897-.3 1.427-1.106 1.427-2.1 0-1.37-.943-2.246-2.456-2.246H5.5v7.352h1.141zm0-3.75V5.277h1.57c.881 0 1.416.499 1.416 1.32 0 .84-.504 1.324-1.386 1.324h-1.6z"/>
+              </svg>
+            </button>
           </div>
         </div>
       </div>
 
       <div class="d-flex gap-2 .d-md-block">
               
-      <input type="submit" value="Submit" class="btn btn-sm btn-primary col-2" />
-      <input type="reset" value="Reset" class="btn btn-sm btn-secondary col-2" />
+      <input type="submit" value="Submit" class="btn  btn-primary" />
+      <input type="reset" value="Reset" class="btn  btn-secondary" />
       <input type="hidden" name="next" value="{{ next }}" />
   </div>
 
@@ -122,7 +125,7 @@
 
         form = $("form#forgotPassword");
 
-        $('#refreshcaptcha').click(function () {
+        $('div#refreshcaptcha').click(function () {
             refresh_captcha();
             $('#id_captcha_1').val('');
             $('#id_captcha_1').focus();
@@ -148,6 +151,9 @@
             captcha_1 :{
               required : "Captcha Code Required",
             },  
+          },
+          errorPlacement: function (error, element) {
+              error.insertAfter($(element).closest('div'));
           },
           
           submitHandler : function(form) {
