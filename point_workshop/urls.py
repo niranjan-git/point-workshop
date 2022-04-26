@@ -1,11 +1,11 @@
 from django.urls import path, include
-from . import views
+from .views import common
 
 
 app_name = 'point_workshop'
 
 
 urlpatterns = [
-    path('', views.home, name='home'),
+    path('', common.home, name='home'),
     
 ]

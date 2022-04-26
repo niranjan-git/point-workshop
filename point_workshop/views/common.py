@@ -12,7 +12,7 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def home(request):
-    print(request.user.roles.all())
-    return render(request, 'index.html')
+    # print(request.user.roles.all())
+    return render(request, 'ar/index.html')
 
 

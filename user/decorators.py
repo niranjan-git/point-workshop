@@ -37,3 +37,16 @@ def destroy_session(function):
             pass
     return wrap
 
+
+
+def user_role_decorator(function):
+    def wrap(request, *args, **kwargs):
+        try:
+            if request.session.session_key:
+                request.session.flush()
+                return function(request, *args, **kwargs)
+            else:
+                return function(request, *args, **kwargs)
+        except Exception as e:
+            pass
+    return wrap
