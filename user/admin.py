@@ -1,17 +1,15 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import User , Role
+from .models import User
 
 # Register your models here.
 
-
-admin.site.register(Role)
 
 
 @admin.register(User)
 class CustomUserAdmin(UserAdmin):
     fieldsets = (
-        (None, {'fields': ('email', 'password', 'last_login', 'roles')}),
+        (None, {'fields': ('email', 'password', 'last_login')}),
         ('Permissions', {'fields': (
             'is_active', 
             'is_staff', 
