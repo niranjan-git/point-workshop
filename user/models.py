@@ -40,22 +40,6 @@ class UserManager(BaseUserManager):
         return user
 
 
-class Role(models.Model):
-    '''
-    Role for different user authorization
-    '''
-
-    id = models.AutoField(primary_key=True)
-    role_short_name = models.CharField(unique=True, max_length=20)
-    role_full_name = models.CharField(max_length=50, null=True, blank=True)
-    date_created = models.DateTimeField(auto_now_add=True)
-    last_updated = models.DateTimeField(auto_now=True)
-
-    def __str__(self):
-        return self.role_short_name
-
-
-
 class User(AbstractBaseUser, PermissionsMixin):
 
     # id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)

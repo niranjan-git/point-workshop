@@ -88,5 +88,12 @@ class UserAssignedRole(DatetimeCreated, models.Model):
     zone = models.OneToOneField('Zone', on_delete=models.SET_NULL, null=True)
     branch = models.OneToOneField('Branch', on_delete=models.SET_NULL, null=True)
     
+
     def __str__(self):
-        return '%s %s' % (self.user, self.role)
+        return str(self.user)
+
+    def get_role(self):
+        return self.role
+
+    # def __str__(self):
+    #     return '%s %s' % (self.user, self.role)
