@@ -12,7 +12,9 @@ def user_assigned_role_decorator(function):
             print("User: ",request.user)
             user_role = UserAssignedRole.objects.get(user=request.user)
             if user_role is not None:
-                print("User assigned role: ",user_role)
+                uid = user_role.role.id
+                
+                print("User assigned role: ",uid)
             else:
                 print("No any role is assigned to User ",request.user)
             return function(request, *args, **kwargs)
