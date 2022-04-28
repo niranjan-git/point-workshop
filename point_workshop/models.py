@@ -85,9 +85,9 @@ class Role(models.Model):
 
 class UserAssignedRole(DatetimeCreated, models.Model):
     user = models.OneToOneField('user.User', on_delete=models.CASCADE)
-    role = models.OneToOneField('Role', on_delete=models.SET_NULL, null=True)
-    zone = models.OneToOneField('Zone', on_delete=models.SET_NULL, null=True)
-    branch = models.OneToOneField('Branch', on_delete=models.SET_NULL, null=True)
+    role = models.ForeignKey('Role', on_delete=models.SET_NULL, null=True) 
+    zone = models.ForeignKey('Zone', on_delete=models.SET_NULL, null=True)
+    branch = models.ForeignKey('Branch', on_delete=models.SET_NULL, null=True)
 
 
     def __str__(self):
