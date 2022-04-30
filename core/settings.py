@@ -102,10 +102,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'HOST': '127.0.0.1',
-        'PORT': '3306',
+        'PORT': '3308',
         'USER': 'root',
         'NAME': 'point_workshop',
-        'PASSWORD': 'Desidoc@123'
+        'PASSWORD': 'root'
     }
 }
 
