@@ -13,7 +13,7 @@ decorators = [login_required, user_assigned_role_decorator]
 
 @method_decorator(decorators, name='dispatch')
 class Home(LoginRequiredMixin, generic.TemplateView):
-    template_name = "point_workshop/ar/index.html"
+    template_name = "point_workshop/index.html"
 
 
 # @method_decorator(decorators, name='dispatch')

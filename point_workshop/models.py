@@ -1,5 +1,6 @@
 from django.utils.timezone import now
 from django.db import models
+from . import model_managers
 try:
     from user.models import User
 except Exception as e:
@@ -84,16 +85,14 @@ class Role(models.Model):
 
 class UserAssignedRole(DatetimeCreated, models.Model):
     user = models.OneToOneField('user.User', on_delete=models.CASCADE)
-    role = models.OneToOneField('Role', on_delete=models.SET_NULL, null=True)
-    zone = models.OneToOneField('Zone', on_delete=models.SET_NULL, null=True)
-    branch = models.OneToOneField('Branch', on_delete=models.SET_NULL, null=True)
-    
+    role = models.ForeignKey('Role', on_delete=models.SET_NULL, null=True) 
+    zone = models.ForeignKey('Zone', on_delete=models.SET_NULL, null=True)
+    branch = models.ForeignKey('Branch', on_delete=models.SET_NULL, null=True)
+
 
     def __str__(self):
         return str(self.user)
 
-    def get_role(self):
-        return self.role
-
+    
     # def __str__(self):
     #     return '%s %s' % (self.user, self.role)
