@@ -1,0 +1,52 @@
+[
+{
+    "model": "point_workshop.role",
+    "pk": 1,
+    "fields": {
+        "role_short_name": "MOD",
+        "role_full_name": "Moderator",
+        "date_created": "2022-04-30T00:00:00Z",
+        "last_updated": "2022-04-30T00:00:00Z"
+    }
+},
+{
+    "model": "point_workshop.role",
+    "pk": 2,
+    "fields": {
+        "role_short_name": "AR",
+        "role_full_name": "Area Representative",
+        "date_created": "2022-04-30T00:00:00Z",
+        "last_updated": "2022-04-30T00:00:00Z"
+    }
+},
+{
+    "model": "point_workshop.role",
+    "pk": 3,
+    "fields": {
+        "role_short_name": "ZONE",
+        "role_full_name": "Zonal Head",
+        "date_created": "2022-04-30T00:00:00Z",
+        "last_updated": "2022-04-30T00:00:00Z"
+    }
+},
+{
+    "model": "point_workshop.role",
+    "pk": 4,
+    "fields": {
+        "role_short_name": "CENTRAL",
+        "role_full_name": "Central Team",
+        "date_created": "2022-04-30T00:00:00Z",
+        "last_updated": "2022-04-30T00:00:00Z"
+    }
+},
+{
+    "model": "point_workshop.role",
+    "pk": 5,
+    "fields": {
+        "role_short_name": "CORE",
+        "role_full_name": "Core Team",
+        "date_created": "2022-04-30T00:00:00Z",
+        "last_updated": "2022-04-30T00:00:00Z"
+    }
+}
+]
