@@ -22,7 +22,7 @@ class DatetimeCreated(models.Model):
 class State(DatetimeCreated, models.Model):
     state_code = models.CharField(max_length=20)
     state_name = models.CharField(max_length=50)
-    zone = models.ForeignKey('Zone', on_delete=models.SET_NULL, null=True)
+    # zone = models.ForeignKey('Zone', on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return self.state_code

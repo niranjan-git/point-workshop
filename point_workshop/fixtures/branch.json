@@ -1,0 +1,674 @@
+[
+    {
+        "model": "point_workshop.branch",
+        "pk": 1,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 1,
+            "branch_code": "PP",
+            "branch_name": "Pitampura",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 2,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 1,
+            "branch_code": "SEC15",
+            "branch_name": "Sec-15 Rohini",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 3,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 1,
+            "branch_code": "VKP",
+            "branch_name": "Vikas Puri",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 4,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 1,
+            "branch_code": "VG",
+            "branch_name": "Vishnu Garden",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 5,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 1,
+            "branch_code": "DWK",
+            "branch_name": "Dwarka",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 6,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 1,
+            "branch_code": "GGN",
+            "branch_name": "Gurgaon",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 7,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 1,
+            "branch_code": "KKG",
+            "branch_name": "Karkardooma",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 8,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 1,
+            "branch_code": "NOD",
+            "branch_name": "Noida",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 9,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 1,
+            "branch_code": "DDA",
+            "branch_name": "Divyadham",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 10,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 1,
+            "branch_code": "NHP",
+            "branch_name": "Nehru Place",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 11,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 1,
+            "branch_code": "GZB",
+            "branch_name": "Ghaziabad",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 12,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 1,
+            "branch_code": "FBD",
+            "branch_name": "Faridabad",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 13,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 1,
+            "branch_code": "PNG",
+            "branch_name": "Patel Nagar",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 14,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 2,
+            "branch_code": "AMR",
+            "branch_name": "Amravati",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 15,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 2,
+            "branch_code": "CHK",
+            "branch_name": "Chakan",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 16,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 2,
+            "branch_code": "LTR",
+            "branch_name": "Latur",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 17,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 2,
+            "branch_code": "MUM",
+            "branch_name": "Mumbai",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 18,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 2,
+            "branch_code": "NGP",
+            "branch_name": "Nagpur",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 19,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 2,
+            "branch_code": "PTH",
+            "branch_name": "Pathardi",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 20,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 3,
+            "branch_code": "BGP",
+            "branch_name": "Bhagalpur",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 21,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 3,
+            "branch_code": "DRB",
+            "branch_name": "Darbhanga",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 22,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 3,
+            "branch_code": "GYA",
+            "branch_name": "Gaya",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 23,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 3,
+            "branch_code": "PTN",
+            "branch_name": "Patna",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 24,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 3,
+            "branch_code": "ARI",
+            "branch_name": "Araria",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 25,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 3,
+            "branch_code": "JKD",
+            "branch_name": "Jharkhand",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 26,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 3,
+            "branch_code": "SHR",
+            "branch_name": "Saharsa",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 27,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 3,
+            "branch_code": "SWN",
+            "branch_name": "Siwan",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 28,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 4,
+            "branch_code": "DDN",
+            "branch_name": "Dehradun",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 29,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 4,
+            "branch_code": "PUR",
+            "branch_name": "Pauri",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 30,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 4,
+            "branch_code": "PTG",
+            "branch_name": "Pithoragarh",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 31,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 4,
+            "branch_code": "JPR",
+            "branch_name": "Jaipur",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 32,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 4,
+            "branch_code": "DGP",
+            "branch_name": "Dungarpur",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 33,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 4,
+            "branch_code": "JDP",
+            "branch_name": "Jodhpur",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 34,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 5,
+            "branch_code": "BHP",
+            "branch_name": "Bhopal",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 35,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 5,
+            "branch_code": "GWL",
+            "branch_name": "Gwalior",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 36,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 5,
+            "branch_code": "NSR",
+            "branch_name": "Nasrullaganj",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 37,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 5,
+            "branch_code": "SMP",
+            "branch_name": "Shyampur",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 38,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 5,
+            "branch_code": "GJR",
+            "branch_name": "Gujarat",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 39,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 6,
+            "branch_code": "AGR",
+            "branch_name": "Agra",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 40,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 6,
+            "branch_code": "AGH",
+            "branch_name": "Aligarh",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 41,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 6,
+            "branch_code": "BRY",
+            "branch_name": "Bareilly",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 42,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 6,
+            "branch_code": "GKP",
+            "branch_name": "Gorakhpur",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 43,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 6,
+            "branch_code": "KNR",
+            "branch_name": "Kanpur",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 44,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 6,
+            "branch_code": "LKO",
+            "branch_name": "Lucknow",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 45,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 6,
+            "branch_code": "MRT",
+            "branch_name": "Meerut",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 46,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 6,
+            "branch_code": "PRG",
+            "branch_name": "Prayagraj",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 47,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 6,
+            "branch_code": "VNS",
+            "branch_name": "Varanasi",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 48,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 6,
+            "branch_code": "NPL",
+            "branch_name": "Nepal",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 49,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 6,
+            "branch_code": "AMH",
+            "branch_name": "Azamgarh",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 50,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 6,
+            "branch_code": "DEO",
+            "branch_name": "Deoria",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 51,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 5,
+            "branch_code": "ASM",
+            "branch_name": "Assam",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 52,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 5,
+            "branch_code": "BGR",
+            "branch_name": "Bangalore",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 53,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 5,
+            "branch_code": "CTH",
+            "branch_name": "Chattisgarh",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 54,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 5,
+            "branch_code": "CHN",
+            "branch_name": "Chennai",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 55,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 5,
+            "branch_code": "HBD",
+            "branch_name": "Hyderabad",
+            "remarks": null
+        }
+    },
+    {
+        "model": "point_workshop.branch",
+        "pk": 56,
+        "fields": {
+            "created": "2022-05-02T00:07:45.807Z",
+            "last_updated": "2022-05-02T00:07:45.807Z",
+            "zone": 5,
+            "branch_code": "ODH",
+            "branch_name": "Odisha",
+            "remarks": null
+        }
+    }
+]
