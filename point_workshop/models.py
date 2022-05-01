@@ -22,7 +22,7 @@ class DatetimeCreated(models.Model):
 class State(DatetimeCreated, models.Model):
     state_code = models.CharField(max_length=20)
     state_name = models.CharField(max_length=50)
-    zone = models.ForeignKey('Zone', on_delete=models.SET_NULL, null=True)
+    # zone = models.ForeignKey('Zone', on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return self.state_code
@@ -54,6 +54,15 @@ class Zone(DatetimeCreated, models.Model):
     def __str__(self):
         return self.zone_code
 
+class ZoneStateMap(DatetimeCreated, models.Model):
+    zone = models.ForeignKey('Zone', on_delete=models.CASCADE)
+    state = models.ForeignKey('State', on_delete=models.SET_NULL, null=True)
+
+    unique_together = ('zone', 'state')
+
+    def __str__(self):
+        return "%s  %s" % (self.zone.zone_code, self.state.state_code)
+
 
 class Branch(DatetimeCreated, models.Model):
     zone = models.ForeignKey('Zone', on_delete=models.CASCADE)
@@ -62,7 +71,7 @@ class Branch(DatetimeCreated, models.Model):
     remarks = models.CharField(max_length=100, null=True, blank=True)
 
     def __str__(self):
-        return self.branch_code
+        return self.branch_name
 
 
 

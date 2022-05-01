@@ -11,13 +11,16 @@ def user_assigned_role_decorator(function):
         try:
             print("User: ",request.user)
             user_role = UserAssignedRole.objects.get(user=request.user)
-            print("User role: ",user_role.role)
+            # print("User role: ",user_role.role)
             if user_role is not None:
                 uid = user_role.role.id
-                if uid == 1:
+                if uid == 4:
                     return redirect("point_workshop:core-team-home")
-                elif uid == 2:
+                elif uid == 5:
                     return redirect("point_workshop:core-team-home")
+                else:
+                    print("user role is: ",user_role.role)
+                    return function(request, *args, **kwargs)
             else:
                 print("No any role is assigned to User ",request.user)
             return function(request, *args, **kwargs)

@@ -8,6 +8,7 @@ admin.site.register(models.State)
 admin.site.register(models.City)
 admin.site.register(models.Role)
 admin.site.register(models.Zone)
+admin.site.register(models.ZoneStateMap)
 admin.site.register(models.Branch)
 admin.site.register(models.UserAssignedRole)
 
