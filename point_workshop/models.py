@@ -54,6 +54,7 @@ class Zone(DatetimeCreated, models.Model):
     def __str__(self):
         return self.zone_code
 
+
 class ZoneStateMap(DatetimeCreated, models.Model):
     zone = models.ForeignKey('Zone', on_delete=models.CASCADE)
     state = models.ForeignKey('State', on_delete=models.SET_NULL, null=True)
@@ -98,10 +99,41 @@ class UserAssignedRole(DatetimeCreated, models.Model):
     zone = models.ForeignKey('Zone', on_delete=models.SET_NULL, null=True)
     branch = models.ForeignKey('Branch', on_delete=models.SET_NULL, null=True)
 
+    objects = model_managers.UserAssignedRoleManager()
+    # def __str__(self):
+    #     return str(self.user)
 
     def __str__(self):
-        return str(self.user)
+        return '%s %s' % (self.user, self.role)
 
-    
-    # def __str__(self):
-    #     return '%s %s' % (self.user, self.role)
+
+class Batch(DatetimeCreated, models.Model):
+    name = models.CharField(max_length=50)
+    remarks = models.CharField(max_length=100, blank=True, null=True)
+    is_active = models.BooleanField(default=False)
+    st_date = models.DateField()
+    en_date = models.DateField()
+
+
+    def __str__(self):
+        return self.name
+
+
+
+class Participant(DatetimeCreated, models.Model):
+    email = models.EmailField(unique=True)
+    name = models.CharField(max_length=100)
+    phone_no = models.CharField(max_length=12)
+    branch = models.ForeignKey('Branch', on_delete=models.SET_NULL, null=True)
+    is_active = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.email
+
+
+class EnrolledParticipant(DatetimeCreated, models.Model):
+    batch = models.ForeignKey('Batch', on_delete=models.CASCADE)
+    participant = models.ForeignKey('Participant', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return '%s %s' % (self.batch.name, self.participant.email)

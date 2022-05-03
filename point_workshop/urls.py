@@ -9,6 +9,13 @@ urlpatterns = [
     path('', view_common.Home.as_view(), name='home'),
 
     path('ar/', view_ar.Home.as_view(), name='ar-home'),
+
+
+
+
+
+    
     path('core-team/', view_core_team.Home.as_view(), name='core-team-home'),
+    path('core-team/user-list/', view_core_team.user_list, name='user-list'),
     
 ]

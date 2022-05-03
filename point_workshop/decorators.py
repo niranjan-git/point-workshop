@@ -14,13 +14,13 @@ def user_assigned_role_decorator(function):
             # print("User role: ",user_role.role)
             if user_role is not None:
                 uid = user_role.role.id
-                if uid == 4:
-                    return redirect("point_workshop:core-team-home")
+                if uid == 2:
+                    return redirect("point_workshop:ar-home")
                 elif uid == 5:
                     return redirect("point_workshop:core-team-home")
                 else:
                     print("user role is: ",user_role.role)
-                    return function(request, *args, **kwargs)
+                    return redirect("user:logout")
             else:
                 print("No any role is assigned to User ",request.user)
             return function(request, *args, **kwargs)
@@ -28,3 +28,24 @@ def user_assigned_role_decorator(function):
             print("Exception at user_assigned_role_decorator: ",e)
             return function(request, *args, **kwargs)
     return wrap
+
+
+
+def core_team_decorator(function):
+    def wrap(request, *args, **kwargs):
+        try:
+            print("User: ",request.user)
+            user_role = UserAssignedRole.objects.get(user=request.user)
+            # print("User role: ",user_role.role)
+            if user_role is not None:
+                uid = user_role.role.id
+                if uid == 5:
+                    return redirect("point_workshop:core-team-home")
+            else:
+                print("No any role is assigned to User ",request.user)
+            return function(request, *args, **kwargs)
+        except Exception as e:
+            print("Exception at user_assigned_role_decorator: ",e)
+            return function(request, *args, **kwargs)
+    return wrap
+

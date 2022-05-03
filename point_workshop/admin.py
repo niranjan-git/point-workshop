@@ -12,6 +12,10 @@ admin.site.register(models.ZoneStateMap)
 admin.site.register(models.Branch)
 admin.site.register(models.UserAssignedRole)
 
+admin.site.register(models.Batch)
+admin.site.register(models.Participant)
+admin.site.register(models.EnrolledParticipant)
+
 
 @admin.register(models.Pincode)
 class PincodeModelAdmin(admin.ModelAdmin):

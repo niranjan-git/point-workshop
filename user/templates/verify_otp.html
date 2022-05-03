@@ -28,7 +28,7 @@
 
           <div class="row .border">
               <div class="col-md-12 col-sm-12 col-lg-12">
-                <input type="number" name="otp" id="otp" placeholder="Enter OTP Received on your Email" autocomplete="off" autofocus maxlength="6" minlength="6" class="form-control" required="required">
+                <input type="text" name="otp" id="otp" placeholder="Enter OTP Received on your Email" autocomplete="off" autofocus maxlength="6" minlength="6" class="form-control" required="required">
               </div>
           </div>
           <div class="row .border">
@@ -93,13 +93,8 @@
             contentType: false,
             processData: false,
             beforeSend: function(data){
-              $("div.spanner").removeClass("hide").addClass("show");
-              $("div.overlay").removeClass("hide").addClass("show");
             },
             success: function (data) {
-              $("div.spanner").removeClass("show").addClass("hide");
-              $("div.overlay").removeClass("show").addClass("hide");
-              
               $('#divGetOtp input').attr("value", "Resend OTP");
               $('div span#otpMessage').html(data['message']);
               resendOtpTime(window.maxCount);

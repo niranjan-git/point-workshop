@@ -16,9 +16,4 @@ class Home(LoginRequiredMixin, generic.TemplateView):
     template_name = "point_workshop/index.html"
 
 
-# @method_decorator(decorators, name='dispatch')
-# def home(request):
-#     # print(request.user.roles.all())
-#     return render(request, 'point_workshop/ar/index.html')
-
 

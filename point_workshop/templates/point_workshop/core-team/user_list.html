@@ -1,0 +1,78 @@
+
+{% extends "point_workshop/core-team/base/core-team-base.html" %}
+
+{% load static %}
+
+{% block title %} User List {% endblock title %}
+{% block extra_css %}
+
+
+<link rel="stylesheet" href="{% static 'datatables/datatables.min.css' %}">
+<link rel="stylesheet" href="{% static 'datatables/DataTables-1.11.5/css/datatables.bootstrap5.min.css' %}">
+{% endblock extra_css %}
+
+{% block main_container %}
+    <div class="container">
+        <table id="userList" class="table table-sm table-hover table-striped .table-bordered">
+            <thead>
+                <tr>
+                    <td>Id</td>
+                    <td>Name</td>
+                    <td>Email</td>
+                    <td>Status</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Id</td>
+                    <td>Name</td>
+                    <td>Email</td>
+                    <td>Status</td>
+                </tr>
+                <tr>
+                    <td>Id</td>
+                    <td>Name</td>
+                    <td>Email</td>
+                    <td>Status</td>
+                </tr>
+                <tr>
+                    <td>Id</td>
+                    <td>Name</td>
+                    <td>Email</td>
+                    <td>Status</td>
+                </tr>
+                <tr>
+                    <td>Id</td>
+                    <td>Name</td>
+                    <td>Email</td>
+                    <td>Status</td>
+                </tr>
+                <tr>
+                    <td>Id</td>
+                    <td>Name</td>
+                    <td>Email</td>
+                    <td>Status</td>
+                </tr>
+                <tr>
+                    <td>Id</td>
+                    <td>Name</td>
+                    <td>Email</td>
+                    <td>Status</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock main_container %}
+
+
+{% block extra_js %}
+<script src="{% static 'datatables/datatables.min.js' %}"></script>
+<script src="{% static 'datatables/DataTables-1.11.5/js/dataTables.bootstrap5.min.js' %}"></script>
+
+<script>
+    $(document).ready(function(){
+        $("#userList").DataTable();
+    });
+</script>
+
+{% endblock extra_js %}
