@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block title %}
-POINT WORKSHOP :: Login
+POINT :: Login
 {% endblock %}
 
 {% block extra_styles %}
@@ -11,18 +11,16 @@ POINT WORKSHOP :: Login
   .error {
     color: red;
   }
-
-  label.error {
+  label.error{
     font-size: 10pt;
   }
-
-  #div_captcha img {
-    max-width: 140px;
+  #div_captcha img{
+    max-width: 170px;
     max-height: 50px;
   }
 
-  #div_captcha input {
-    max-width: 100px;
+  #div_captcha input{
+    max-width: 170px;
     max-height: 40px;
   }
 </style>
@@ -31,97 +29,90 @@ POINT WORKSHOP :: Login
 
 {% block mainContent %}
 
-<div class="container col-xs-10 col-sm-10 col-md-7 col-lg-6 col-xl-4">
+<div class="container col-xs-10 col-sm-10 col-md-6 col-lg-5 col-xl-5">
   <div class="card shadow mb-5 bg-white rounded">
-    <div class="card-header fw-bold bg-info p-3"
-      style="background: linear-gradient(to right, #43489c, #a09727); color: white;">
-
-      <div class="d-flex">
-        Login
+    <div class="card-header fw-bold bg-info p-3" style="background: linear-gradient(to right, #43489c, #a09727); color: white;">
+       
+       <div class="d-flex" > 
+        Login   
+       </div>
+    </div>
+    <div class="card-body .text-info">
+    <form method="post" id="login" name="login" action="{% url 'user:login' %}" class=".form-control col-12">
+      {% csrf_token %}
+      <div class="row">
+        <div class="col-12 mb-3">
+          <label class="form-label" for="id_username">Email address:</label>
+          <input type="email" class="form-control" id="id_username" name="username" autofocus="" autocapitalize="none"
+            autocomplete="off" maxlength="150" required="" placeholder="Enter Email">
+        </div>
       </div>
-    </div>
-    <div class="card-body p-4 .text-info">
-      <form method="post" id="login" name="login" action="{% url 'user:login' %}" class=".form-control col-12">
-        {% csrf_token %}
 
-        <div class="mb-4">
-          <div class="form-outline .col-12">
-            <input type="email" class="form-control form-control-lg" id="id_username" name="username"
-              autocapitalize="none" autocomplete="off" maxlength="150" required="">
-            <label class="form-label" for="id_username">Email address:</label>
+      <div class="row">
+        <div class="col-12 mb-3">
+          <label class="form-label" for="id_password">Password:</label>
+          <input type="password" class="form-control" id="id_password" name="password" autocomplete="current-password"
+            required="" placeholder="Enter password">
+        </div>
+      </div>
+
+      <div id="div_captcha" class="row mb-3">
+        {{ form.captcha }}
+
+        <div class="col-2 col-md-2 col-sm-2 col-xs-2 m-1">
+          <div class="btn btn-secondary btn-sm fw-bold text-light" id="refreshcaptcha">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-bootstrap-reboot" viewBox="0 0 16 16">
+              <path d="M1.161 8a6.84 6.84 0 1 0 6.842-6.84.58.58 0 1 1 0-1.16 8 8 0 1 1-6.556 3.412l-.663-.577a.58.58 0 0 1 .227-.997l2.52-.69a.58.58 0 0 1 .728.633l-.332 2.592a.58.58 0 0 1-.956.364l-.643-.56A6.812 6.812 0 0 0 1.16 8z"/>
+              <path d="M6.641 11.671V8.843h1.57l1.498 2.828h1.314L9.377 8.665c.897-.3 1.427-1.106 1.427-2.1 0-1.37-.943-2.246-2.456-2.246H5.5v7.352h1.141zm0-3.75V5.277h1.57c.881 0 1.416.499 1.416 1.32 0 .84-.504 1.324-1.386 1.324h-1.6z"/>
+            </svg>
           </div>
         </div>
+      </div>
 
-        <div class="mb-4">
-          <div class="form-outline .col-12">
-            <input type="password" class="form-control form-control-lg" id="id_password" name="password"
-              autocomplete="current-password" required="">
-            <label class="form-label" for="id_password">Password:</label>
-          </div>
+      <div class="d-flex gap-2 .d-md-block">
+              
+      <input type="submit" value="Login" class="btn btn-sm btn-primary col-2" />
+      <input type="reset" value="Reset" class="btn btn-sm btn-secondary col-2" />
+      <input type="hidden" name="next" value="{{ next }}" />
+  </div>
+
+      <div class="form-row">
+        <div class="form-group col-12 mt-3 error">
+          {% if form.errors %}
+          {% for field, errors in form.errors.items %}
+          {% for error in errors %}
+          <span style="color: red;">{{error}}</span>
+          {% endfor%}
+          {% endfor%}
+          <!-- <small style="color: red;">Your username and password didn't match. Please try again.</small> -->
+          {% endif %}
         </div>
-
-        <div class="mb-4">
-          <div id="div_captcha" class="row">
-            {{ form.captcha }}
-
-            <div class="col-2 col-md-2 col-sm-2 col-xs-2 m-1">
-              <button class="btn btn-secondary .btn-sm btn-floating fw-bold text-light" id="refreshcaptcha">
-                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                  class="bi bi-bootstrap-reboot" viewBox="0 0 16 16">
-                  <path
-                    d="M1.161 8a6.84 6.84 0 1 0 6.842-6.84.58.58 0 1 1 0-1.16 8 8 0 1 1-6.556 3.412l-.663-.577a.58.58 0 0 1 .227-.997l2.52-.69a.58.58 0 0 1 .728.633l-.332 2.592a.58.58 0 0 1-.956.364l-.643-.56A6.812 6.812 0 0 0 1.16 8z" />
-                  <path
-                    d="M6.641 11.671V8.843h1.57l1.498 2.828h1.314L9.377 8.665c.897-.3 1.427-1.106 1.427-2.1 0-1.37-.943-2.246-2.456-2.246H5.5v7.352h1.141zm0-3.75V5.277h1.57c.881 0 1.416.499 1.416 1.32 0 .84-.504 1.324-1.386 1.324h-1.6z" />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="d-flex gap-2 .d-md-block">
-
-          <input type="submit" value="Login" class="btn btn-block btn-primary .col-2" />
-          <input type="reset" value="Reset" class="btn btn btn-secondary .col-2" />
-          <input type="hidden" name="next" value="{{ next }}" />
-        </div>
-
         <div class="form-row">
-          <div class="form-group col-12 mt-3 error">
-            {% if form.errors %}
-            {% for field, errors in form.errors.items %}
-            {% for error in errors %}
-            <span style="color: red;">{{error}}</span>
-            {% endfor%}
-            {% endfor%}
-            <!-- <small style="color: red;">Your username and password didn't match. Please try again.</small> -->
-            {% endif %}
-          </div>
-          <div class="form-row">
 
-            {% if messages %}
-            <ul>
-              {% for message in messages %}
-              <li>{{ message }}</li>
-              {% endfor %}
-            </ul>
-            {% endif %}
-
-          </div>
+          {% if messages %}
+          <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+          </ul>
+          {% endif %}
 
         </div>
 
-        <div class="form-row">
-          <div class="form-group col-12">
-            <div>
-              Don't have an account? <a href="{% url 'user:send-email-otp' %}">Register yourself</a>
-            </div>
-            <div>Lost your Password? <a href="{% url 'user:password_forgot' %}">Reset Now</a></div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-12">
+          <div>
+            Don't have an account? <a href="{% url 'user:send-email-otp' %}">Register yourself</a>
           </div>
+          <div>Lost your Password? <a href="{% url 'user:password_forgot' %}">Reset Now</a></div>
         </div>
+      </div>
 
 
-      </form>
-    </div>
+    </form>
+  </div>
   </div>
 </div>
 
@@ -135,6 +126,13 @@ POINT WORKSHOP :: Login
 <script>
   $(document).ready(function () {
 
+    $('#refreshcaptcha').click(function () {
+      refresh_captcha();
+      $('#id_captcha_1').val('');
+      $('#id_captcha_1').focus();
+     // console.log(form.find('#id_email').val());
+  });
+
     form = $("form#login");
 
     form.validate({
@@ -143,67 +141,64 @@ POINT WORKSHOP :: Login
           required: true,
           email: true
         },
-        password: {
-          required: true,
-          password: true,
-          minlength: 8,
-          maxlength: 15,
+        password : {
+          required : true,  
+          password : true,
+          minlength : 8,
+          maxlength : 15,
         },
-        captcha_1: {
-          required: true,
+        captcha_1 :{
+          required : true,
         },
-
-
+        
+          
       },
-      messages: {
-        username: {
-          required: "Username required",
-          email: "Please enter valid email address.",
+      messages : {
+        username : {
+            required : "Username required",
+            email: "Please enter valid email address.",
         },
-        password: {
-          required: "Password required",
-          minlength: "Password must be minimum 8 characters long",
-          maxlength: "Password must not contain more than 15 characters",
+        password : {
+          required : "Password required",
+          minlength : "Password must be minimum 8 characters long",
+          maxlength : "Password must not contain more than 15 characters",
         },
-        captcha_1: {
-          required: "Captcha Code Required",
-        },
+        captcha_1 :{
+          required : "Captcha Code Required",
+        },  
       },
-      errorPlacement: function (error, element) {
-        error.insertAfter($(element).closest('div'));
-      },
-
-      submitHandler: function (form) {
-
+      
+      submitHandler : function(form) {
+        // console.log(form.find('#id_email').val());
+        /*
+        $.ajax({
+          url: '',
+          method: 'POST',
+          data: formData,
+          dataType: 'json',
+          cache: false,
+          contentType: false,
+          processData: false,
+          success: function (data) {
+            console.log(data)
+          }
+        });
+        */
         form.submit();
-
-        $("div.spanner").removeClass("hide").addClass("show");
-        $("div.overlay").removeClass("hide").addClass("show");
-
+        
       }
     });
 
-    $("input:reset").on('click', function () {
+    $("input:reset").on('click', function(){
       // alert("fasd");
       $(document).find('label.error, span.error').remove();
       refresh_captcha();
       $('#id_username').focus();
     });
 
-
-    $('button#refreshcaptcha').on('click', function () {
-      refresh_captcha();
-      $('#id_captcha_1').val('');
-      //$('#id_captcha_1').focus();
-      //console.log(form.find('#id_username').val());
-    });
-
-
   });
 
-
-
-  function refresh_captcha() {
+  function refresh_captcha(){
     $.getJSON("/captcha/refresh/", function (result) {
       $('.captcha').attr('src', result['image_url']);
       $('#id_captcha_0').val(result['key']);
@@ -212,3 +207,44 @@ POINT WORKSHOP :: Login
 </script>
 
 {% endblock extra_js %}
+
+
+
+
+{% comment %}
+
+<!-- 
+  {% if form.errors %}
+    <p>Your username and password didn't match. Please try again.</p>
+  {% endif %}
+
+  {% if next %}
+    {% if user.is_authenticated %}
+      <p>Your account doesn't have access to this page. To proceed,
+      please login with an account that has access.</p>
+    {% else %}
+      <p>Please login to see this page.</p>
+    {% endif %}
+  {% endif %}
+
+  <form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    <table>
+      <tr>
+        <td>{{ form.username.label_tag }}</td>
+        <td>{{ form.username }}</td>
+      </tr>
+      <tr>
+        <td>{{ form.password.label_tag }}</td>
+        <td>{{ form.password }}</td>
+      </tr>
+    </table>
+    <input type="submit" value="login" />
+    <input type="hidden" name="next" value="{{ next }}" />
+  </form>
+
+  {# Assumes you setup the password_reset view in your URLconf #}
+  <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+
+{% endblock %} -->
+{% endcomment %}
