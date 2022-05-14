@@ -16,13 +16,14 @@ except:
 
 decorators = [login_required, core_team_decorator]
 
-# @method_decorator(decorators, name='dispatch')
+@method_decorator(decorators, name='dispatch')
 class Home(generic.TemplateView):
     template_name = "point_workshop/core-team/index.html"
 
 
 
-decorators
+@login_required
+@core_team_decorator
 def user_list(request):
     # print(request.user.roles.all())
     users = models.UserAssignedRole.objects.core()
