@@ -16,49 +16,33 @@
         <table id="userList" class="table table-sm table-hover table-striped .table-bordered">
             <thead>
                 <tr>
-                    <td>Id</td>
-                    <td>Name</td>
-                    <td>Email</td>
-                    <td>Status</td>
+                    <th>S No</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Zone</th>
+                    <th>Branch</th>
+                    <th>Status</th>
                 </tr>
             </thead>
             <tbody>
+                {% for user in users %}
                 <tr>
-                    <td>Id</td>
-                    <td>Name</td>
-                    <td>Email</td>
-                    <td>Status</td>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{user.user.name}}</td>
+                    <td>{{user.user.email}}</td>
+                    <td>{{user.role}}</td>
+                    <td>{{user.zone}}</td>
+                    <td>{{user.branch.branch_name}}</td>
+                    <td>
+                        {% if user.user.is_active %}
+                        <span class="text-success">Active</span>
+                        {% else %}
+                        <span class="text-danger">In-active</span>
+                        {% endif %}
+                    </td>
                 </tr>
-                <tr>
-                    <td>Id</td>
-                    <td>Name</td>
-                    <td>Email</td>
-                    <td>Status</td>
-                </tr>
-                <tr>
-                    <td>Id</td>
-                    <td>Name</td>
-                    <td>Email</td>
-                    <td>Status</td>
-                </tr>
-                <tr>
-                    <td>Id</td>
-                    <td>Name</td>
-                    <td>Email</td>
-                    <td>Status</td>
-                </tr>
-                <tr>
-                    <td>Id</td>
-                    <td>Name</td>
-                    <td>Email</td>
-                    <td>Status</td>
-                </tr>
-                <tr>
-                    <td>Id</td>
-                    <td>Name</td>
-                    <td>Email</td>
-                    <td>Status</td>
-                </tr>
+                {% endfor %}
             </tbody>
         </table>
     </div>
@@ -71,7 +55,30 @@
 
 <script>
     $(document).ready(function(){
-        $("#userList").DataTable();
+        $("#userList").DataTable({
+            "ordering": false,
+            initComplete: function () {
+                this.api().columns([1,2,3,4,5,6]).every( function (d) {//THis is used for specific column
+                    var column = this;
+                    var theadname = $('#userList th').eq([d]).text();
+                    var select = $('<select class="mx-1"><option value="'+d+'">'+theadname+': All</option></select>')
+                        .appendTo("#userList")
+                        .on( 'change', function () {
+                            var val = $.fn.dataTable.util.escapeRegex(
+                                $(this).val()
+                            );
+
+                            column
+                                .search( val ? '^'+val+'$' : '', true, false )
+                                .draw();
+                        } );
+                    column.data().unique().sort().each( function ( d, j ) {
+                        var val = $('<div/>').html(d).text();
+                        select.append( '<option value="'+val+'">'+val+'</option>' )
+                    } );
+                } );
+            }
+        });
     });
 </script>
 
