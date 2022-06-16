@@ -26,7 +26,7 @@ class Home(generic.TemplateView):
 @core_team_decorator
 def user_list(request):
     # print(request.user.roles.all())
-    users = models.UserAssignedRole.objects.core()
+    users = models.UserAssignedRole.objects.all()
     context = {
         'users' : users 
     }
