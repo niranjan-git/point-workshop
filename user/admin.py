@@ -30,8 +30,8 @@ class CustomUserAdmin(UserAdmin):
 
 
     ordering = ('email',)
-    list_display = ('email', 'is_staff', 'is_active')
-    search_fields = ('email',)
+    list_display = ('name', 'email', 'is_staff', 'is_active')
+    search_fields = ('name', 'email')
     
     
 
