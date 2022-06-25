@@ -12,8 +12,9 @@
 {% endblock extra_css %}
 
 {% block main_container %}
-    <div class="container">
-        <table id="userList" class="table table-sm table-hover table-striped .table-bordered">
+    <div class=".container">
+        <div class="text-center"><h3>USER LIST</h3></div>
+        <table id="userList" class="table table-sm table-hover table-striped table-bordered">
             <thead>
                 <tr>
                     <th>S No</th>
@@ -55,30 +56,7 @@
 
 <script>
     $(document).ready(function(){
-        $("#userList").DataTable({
-            "ordering": false,
-            initComplete: function () {
-                this.api().columns([1,2,3,4,5,6]).every( function (d) {//THis is used for specific column
-                    var column = this;
-                    var theadname = $('#userList th').eq([d]).text();
-                    var select = $('<select class="mx-1"><option value="'+d+'">'+theadname+': All</option></select>')
-                        .appendTo("#userList")
-                        .on( 'change', function () {
-                            var val = $.fn.dataTable.util.escapeRegex(
-                                $(this).val()
-                            );
-
-                            column
-                                .search( val ? '^'+val+'$' : '', true, false )
-                                .draw();
-                        } );
-                    column.data().unique().sort().each( function ( d, j ) {
-                        var val = $('<div/>').html(d).text();
-                        select.append( '<option value="'+val+'">'+val+'</option>' )
-                    } );
-                } );
-            }
-        });
+        $("#userList").DataTable();
     });
 </script>
 
