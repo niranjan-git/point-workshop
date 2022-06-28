@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .views import view_common, view_core_team, view_ar
+from .views import view_common, view_core_team, view_ar, view_zone
 
 
 app_name = 'point_workshop'
@@ -11,6 +11,10 @@ urlpatterns = [
     path('ar/', view_ar.Home.as_view(), name='ar-home'),
 
 
+
+
+
+    path('zone/', view_zone.Home.as_view(), name='zone-home'),
 
 
 

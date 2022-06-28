@@ -16,6 +16,8 @@ def user_assigned_role_decorator(function):
                 uid = user_role.role.id
                 if uid == 2:
                     return redirect("point_workshop:ar-home")
+                elif uid == 3:
+                    return redirect("point_workshop:zone-home")
                 elif uid == 5:
                     return redirect("point_workshop:core-team-home")
                 else:
@@ -69,6 +71,27 @@ def ar_decorator(function):
             return redirect("user:login")
         except Exception as e:
             print("Exception at ar_decorator: ",e)
+            return redirect("user:login")
+    return wrap
+
+
+def zone_decorator(function):
+    def wrap(request, *args, **kwargs):
+        try:
+            print("User: ",request.user)
+            user_role = UserAssignedRole.objects.get(user=request.user)
+            print("User role: ",user_role.role)
+            if user_role is not None:
+                uid = user_role.role.id
+                if uid == 3:
+                    return function(request, *args, **kwargs)
+                else:
+                    return redirect("user:login")
+            else:
+                print("No any role is assigned to User ",request.user)
+            return redirect("user:login")
+        except Exception as e:
+            print("Exception at zone_decorator: ",e)
             return redirect("user:login")
     return wrap
 

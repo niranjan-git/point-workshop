@@ -1,8 +1,5 @@
 from django.contrib import admin
 from import_export.admin import ExportActionMixin, ImportExportMixin
-from import_export.fields import Field
-from import_export import resources
-
 from . import models
 from . import forms
 
@@ -19,9 +16,6 @@ from . import forms
 # admin.site.register(models.Batch)
 # admin.site.register(models.Participant)
 # admin.site.register(models.EnrolledParticipant)
-
-
-
 
 
 @admin.register(models.Batch)
@@ -91,25 +85,8 @@ class ZoneStateMapModelAdmin(ExportActionMixin, admin.ModelAdmin):
 
 
 
-
-class ParticipantResource(resources.ModelResource):
-    branch = Field()
-    zone = Field()
-
-    class Meta:
-        model = models.Participant
-        exclude = ['created', 'last_updated']
-
-    def dehydrate_branch(self, Participant):
-        return Participant.branch
-
-    def dehydrate_zone(self, Participant):
-        return Participant.branch.zone
-        
-
 @admin.register(models.Participant)
 class ParticipantModelAdmin(ImportExportMixin, ExportActionMixin, admin.ModelAdmin):
-    resource_class = ParticipantResource
     list_display = ('name', 'email', 'phone_no', 'zone', 'branch', 'is_active')
     fields = ('name', 'email', 'phone_no', 'branch', 'is_active')
     ordering = ('name',)

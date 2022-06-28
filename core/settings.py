@@ -53,6 +53,7 @@ LOCAL_APPS = [
 THIRD_PARTY_APPS = [
     # 'bootstrap4',
     'captcha',
+    'import_export',
 ]
 
 INSTALLED_APPS = BUILT_IN_APPS + LOCAL_APPS + THIRD_PARTY_APPS
