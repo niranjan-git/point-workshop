@@ -7,6 +7,7 @@ app_name = 'point_workshop'
 
 urlpatterns = [
     path('', view_common.Home.as_view(), name='home'),
+    path('user-list/', view_common.user_list, name='user-list'),
 
     path('ar/', view_ar.Home.as_view(), name='ar-home'),
 
@@ -20,6 +21,6 @@ urlpatterns = [
 
     
     path('core-team/', view_core_team.Home.as_view(), name='core-team-home'),
-    path('core-team/user-list/', view_core_team.user_list, name='user-list'),
+    path('core-team/user-list/', view_core_team.user_list, name='core-user-list'),
     
 ]

@@ -26,13 +26,27 @@ from . import forms
 
 @admin.register(models.Batch)
 class BatchModelAdmin(ImportExportMixin, ExportActionMixin, admin.ModelAdmin):
-    list_display = ('name', 'is_active', 'st_date', 'en_date', 'remarks')
-    fields = ('name', ('st_date', 'en_date'), 'remarks', 'is_active')
+    list_display = ('name',)
+    fields = ('name',)
     ordering = ('name',)
+
+    search_fields = ['name']
+
+
+@admin.register(models.BatchDetails)
+class BatchDetailsModelAdmin(ImportExportMixin, ExportActionMixin, admin.ModelAdmin):
+    list_display = ('batch', 'is_active', 'st_date', 'en_date', 'remarks')
+    fields = ('batch', ('st_date', 'en_date'), 'remarks', 'is_active')
+    #ordering = ('name',)
 
     list_filter = ('is_active', 'st_date', 'en_date')
 
-    search_fields = ['name', 'remarks']
+    search_fields = ['batch', 'remarks']
+
+    def batch(self, obj):
+        return obj.batch.name
+    batch.short_description = 'batch'
+    
 
 
 

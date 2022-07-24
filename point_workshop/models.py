@@ -135,11 +135,7 @@ class UserAssignedRole(DatetimeCreated, models.Model):
 
 
 class Batch(DatetimeCreated, models.Model):
-    name = models.CharField('Batch Name', max_length=50)
-    remarks = models.CharField('Remarks', max_length=100, blank=True, null=True)
-    is_active = models.BooleanField('Active', default=False)
-    st_date = models.DateField('Start Date')
-    en_date = models.DateField('End Date')
+    name = models.CharField('Batch Name', unique=True, max_length=50)
 
     class Meta:
         verbose_name_plural = "Batch"
@@ -147,6 +143,19 @@ class Batch(DatetimeCreated, models.Model):
     def __str__(self):
         return self.name
 
+
+class BatchDetails(DatetimeCreated, models.Model):
+    batch = models.ForeignKey('Batch', on_delete=models.SET_NULL, null=True)
+    remarks = models.CharField('Remarks', max_length=100, blank=True, null=True)
+    is_active = models.BooleanField('Active', default=False)
+    st_date = models.DateField('Start Date')
+    en_date = models.DateField('End Date')
+
+    class Meta:
+        verbose_name_plural = "Batch Detail"
+
+    def __str__(self):
+        return str(self.batch.pk)
 
 
 class Participant(DatetimeCreated, models.Model):
@@ -164,7 +173,7 @@ class Participant(DatetimeCreated, models.Model):
 
 
 class EnrolledParticipant(DatetimeCreated, models.Model):
-    batch = models.ForeignKey('Batch', on_delete=models.CASCADE)
+    batch = models.ForeignKey('BatchDetails', on_delete=models.CASCADE)
     participant = models.ForeignKey('Participant', on_delete=models.CASCADE)
 
     class Meta:

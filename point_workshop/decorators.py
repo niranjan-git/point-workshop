@@ -32,7 +32,6 @@ def user_assigned_role_decorator(function):
     return wrap
 
 
-
 def core_team_decorator(function):
     def wrap(request, *args, **kwargs):
         try:
